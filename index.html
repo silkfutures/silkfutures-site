@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Silkcrayon — production agency & label, London</title>
+<meta name="description" content="Silkcrayon is a London production agency and label. Silkfutures develops artists responsibly, Silk Records releases them, and our bespoke studio mixes, produces and shoots video for hire.">
+<style>
+/* ==========================================================================
+   SILKCRAYON — design tokens v4
+   Bold London ad-agency showreel energy. Stark black/white, one hot red,
+   huge declarative uppercase type, full-bleed hero, work-grid, numbered
+   method timeline, pillar cards, ecosystem grid, stacked quotes.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --black:  #0A0A0A;
+  --white:  #F5F4EF;
+  --red:    #E63A24;
+  --grey:   #8B887E;
+  --grey-dark:#4A4842;
+  --line-d: rgba(245,244,239,0.16);
+  --line-l: rgba(10,10,10,0.14);
+
+  --display:'Archivo', sans-serif;
+  --body:'Archivo', sans-serif;
+  --mono:'IBM Plex Mono', monospace;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--white);
+  color:var(--black);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.5;
+}
+
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+button{ font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+ul{ list-style:none; }
+
+.wrap{ max-width:1320px; margin:0 auto; padding:0 40px; }
+
+/* ---------- type ---------- */
+h1,h2,h3{
+  font-family:var(--display);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:-0.015em;
+  line-height:0.94;
+}
+h1{ font-size:clamp(3rem, 8.4vw, 7.6rem); }
+h2{ font-size:clamp(2.1rem, 4.6vw, 3.6rem); }
+h3{ font-size:clamp(1.2rem, 2.2vw, 1.5rem); font-weight:800; }
+
+.accent{ color:var(--red); }
+
+.eyebrow{
+  font-family:var(--mono); font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--grey); display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{ content:""; width:8px; height:8px; background:var(--red); border-radius:50%; display:inline-block; flex-shrink:0; }
+
+.index-no{ font-family:var(--mono); font-size:0.78rem; letter-spacing:0.05em; color:var(--grey); }
+
+p.lede{ font-size:1.2rem; max-width:54ch; }
+.dim{ color:var(--grey); }
+.dim-d{ color:rgba(245,244,239,0.62); }
+.section-head{ margin:20px 0 50px; max-width:70ch; }
+.section-head h2{ margin:20px 0 16px; }
+
+/* ---------- nav ---------- */
+.site-nav{
+  position:fixed; top:0; left:0; right:0; z-index:500;
+  background:var(--black); color:var(--white);
+}
+.site-nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:72px; }
+.brand{ font-family:var(--display); font-weight:900; font-size:1.25rem; text-transform:uppercase; letter-spacing:-0.01em; }
+.brand .dot{ color:var(--red); }
+.nav-links{ display:flex; gap:30px; align-items:center; }
+.nav-links a{
+  font-family:var(--mono); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase;
+  padding-bottom:3px; border-bottom:1px solid transparent;
+}
+.nav-links a:hover, .nav-links a.active{ border-color:var(--red); color:var(--red); }
+.nav-cta{
+  font-family:var(--mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em;
+  background:var(--red); color:var(--black); padding:10px 18px;
+}
+.nav-cta:hover{ background:var(--white); }
+.nav-toggle{ display:none; }
+
+/* ---------- sections ---------- */
+main{ padding-top:72px; }
+section{ padding:110px 0; position:relative; }
+.section-dark{ background:var(--black); color:var(--white); }
+.section-line{ border-top:1px solid var(--line-l); }
+.section-dark.section-line{ border-top:1px solid var(--line-d); }
+.tight{ padding:64px 0; }
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100vh;
+  display:flex; flex-direction:column; justify-content:center;
+  background:var(--black); color:var(--white);
+  padding-top:72px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  opacity:0.06; mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.hero-glow{
+  position:absolute; z-index:0; pointer-events:none;
+  width:60vw; height:60vw; max-width:900px; max-height:900px;
+  right:-18vw; top:-10vw;
+  background:radial-gradient(circle, rgba(230,58,36,0.22) 0%, rgba(230,58,36,0) 70%);
+}
+
+/* ---------- hero star: shining 8-point burst ---------- */
+.hero-star{
+  position:absolute; z-index:1; pointer-events:none;
+  top:46%; left:74%; width:min(38vw,520px); height:min(38vw,520px);
+  transform:translate(-50%,-50%);
+}
+.hero-star .bloom{
+  position:absolute; inset:10%; border-radius:50%;
+  background:radial-gradient(circle, rgba(245,244,239,0.4) 0%, rgba(230,58,36,0.28) 26%, rgba(230,58,36,0.08) 50%, rgba(230,58,36,0) 72%);
+  filter:blur(10px);
+  mix-blend-mode:screen;
+  animation:star-bloom 4.8s ease-in-out infinite;
+}
+.hero-star .streak{
+  position:absolute; left:50%; top:50%; width:260%; height:1px;
+  background:linear-gradient(90deg, transparent 0%, rgba(245,244,239,0.35) 44%, rgba(245,244,239,0.7) 50%, rgba(245,244,239,0.35) 56%, transparent 100%);
+  transform:translate(-50%,-50%);
+  animation:streak-flicker 3.6s ease-in-out infinite;
+}
+.hero-star svg{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; mix-blend-mode:screen; }
+.hero-star .ray-primary, .hero-star .ray-secondary, .hero-star .star-core{
+  transform-box:fill-box; transform-origin:center;
+}
+.hero-star .ray-primary{ animation:ray-pulse-a 4.8s ease-in-out infinite; opacity:0.85; }
+.hero-star .ray-secondary{ animation:ray-pulse-b 4.8s ease-in-out infinite 0.5s; opacity:0.45; }
+.hero-star .star-core{ animation:core-pulse 2.4s ease-in-out infinite; }
+
+@keyframes star-bloom{
+  0%,100%{ opacity:0.5; transform:scale(0.9); }
+  50%{ opacity:0.9; transform:scale(1.08); }
+}
+@keyframes streak-flicker{
+  0%,100%{ opacity:0.25; }
+  50%{ opacity:0.7; }
+}
+@keyframes ray-pulse-a{
+  0%,100%{ opacity:0.6; transform:scale(0.85) rotate(0deg); }
+  50%{ opacity:0.95; transform:scale(1.02) rotate(3deg); }
+}
+@keyframes ray-pulse-b{
+  0%,100%{ opacity:0.25; transform:scale(0.8) rotate(0deg); }
+  50%{ opacity:0.55; transform:scale(1) rotate(-4deg); }
+}
+@keyframes core-pulse{
+  0%,100%{ opacity:0.7; transform:scale(0.8); }
+  50%{ opacity:1; transform:scale(1.2); }
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-star .bloom, .hero-star .streak, .hero-star .ray-primary, .hero-star .ray-secondary, .hero-star .star-core{
+    animation:none;
+  }
+}
+@media (max-width:900px){
+  .hero-star{ left:50%; top:38%; width:min(70vw,420px); height:min(70vw,420px); opacity:0.55; }
+}
+
+.hero .wrap{ position:relative; z-index:2; }
+.hero .wrap::before{
+  content:"";
+  position:absolute; z-index:-1;
+  left:-40px; top:-60px; right:38%; bottom:-60px;
+  background:linear-gradient(90deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.4) 60%, rgba(10,10,10,0) 100%);
+  pointer-events:none;
+}
+.hero .eyebrow{ margin-bottom:28px; }
+.hero h1{ margin-bottom:30px; max-width:19ch; }
+.hero p.lede{ color:rgba(245,244,239,0.78); margin-bottom:40px; }
+.hero-small{ min-height:64vh; }
+
+/* ---------- video hero (home page) ---------- */
+.video-hero{
+  position:relative; height:100vh; min-height:560px; max-height:1100px;
+  overflow:hidden; background:var(--black);
+}
+.video-hero-media{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center;
+}
+.video-hero .video-overlay{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, rgba(10,10,10,0.34) 0%, rgba(10,10,10,0.1) 38%, rgba(10,10,10,0.52) 78%, rgba(10,10,10,0.94) 100%);
+}
+.video-hero-word{
+  position:absolute; inset:0; z-index:2;
+  display:flex; align-items:center; justify-content:center;
+  padding-top:72px;
+}
+.video-hero-word h1{
+  font-size:clamp(2.4rem, 9vw, 8rem);
+  text-align:center; color:var(--white); letter-spacing:-0.01em;
+  text-shadow:0 6px 60px rgba(0,0,0,0.6);
+}
+.video-hero .scroll-cue{ z-index:3; }
+
+/* ---------- statement section: wordmark lands here in black, then the big broad "what we do" line ---------- */
+.statement-section{
+  position:relative; background:var(--white); color:var(--black);
+  padding:120px 0 130px; text-align:center;
+}
+.statement-section .word-black{
+  font-size:clamp(2.4rem, 9vw, 8rem);
+  letter-spacing:-0.01em; line-height:1;
+  color:var(--black); margin-bottom:110px;
+}
+.statement-section .statement{
+  font-family:var(--display); font-weight:900; text-transform:uppercase;
+  letter-spacing:-0.015em; line-height:1.05;
+  font-size:clamp(1.9rem, 4.6vw, 3.4rem);
+  max-width:20ch; margin:0 auto;
+}
+@media (max-width:720px){
+  .statement-section{ padding:90px 0 100px; }
+  .statement-section .word-black{ margin-bottom:70px; }
+}
+
+/* ---------- tagline section (home page, scroll-revealed) ---------- */
+.tagline-section{ position:relative; overflow:hidden; padding:150px 0 130px; }
+.tagline-section::before{
+  content:"";
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+  opacity:0.06; mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.tagline-section .wrap{ position:relative; z-index:2; }
+.tagline-section .wrap::before{
+  content:"";
+  position:absolute; z-index:-1;
+  left:-40px; top:-60px; right:38%; bottom:-60px;
+  background:linear-gradient(90deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.4) 60%, rgba(10,10,10,0) 100%);
+  pointer-events:none;
+}
+.tagline-section .eyebrow{ margin-bottom:28px; }
+.big-tagline{
+  margin-bottom:30px; max-width:19ch;
+  font-family:var(--display); font-weight:900; text-transform:uppercase;
+  letter-spacing:-0.015em; line-height:0.96;
+  font-size:clamp(2.6rem,7.2vw,6.4rem);
+}
+.tagline-section p.lede{ color:rgba(245,244,239,0.78); margin-bottom:40px; }
+@media (max-width:720px){
+  .video-hero{ height:92vh; }
+}
+
+.scroll-cue{
+  position:absolute; bottom:44px; left:40px; z-index:2;
+  display:flex; align-items:center; gap:12px;
+  font-family:var(--mono); font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
+  color:rgba(245,244,239,0.55);
+}
+.scroll-cue .bar{ width:1px; height:36px; background:rgba(245,244,239,0.4); position:relative; overflow:hidden; }
+.scroll-cue .bar::after{
+  content:""; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--red);
+  animation:cue 1.8s ease-in-out infinite;
+}
+@keyframes cue{ 0%{ top:-100%; } 60%{ top:100%; } 100%{ top:100%; } }
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; gap:12px;
+  font-family:var(--mono); font-size:0.76rem; text-transform:uppercase; letter-spacing:0.1em;
+  padding:16px 28px; border:1px solid var(--red); background:var(--red); color:var(--black);
+  transition:background 0.15s ease, color 0.15s ease;
+}
+.btn:hover{ background:transparent; color:var(--white); }
+.section-line .btn:hover, body > main > section:not(.section-dark) .btn:hover, .cta-bar .btn:hover{ color:var(--black); }
+.btn-outline{ background:transparent; color:var(--black); border-color:var(--black); }
+.btn-outline:hover{ background:var(--black); color:var(--white); }
+.section-dark .btn-outline, .hero .btn-outline{ color:var(--white); border-color:rgba(245,244,239,0.4); }
+.section-dark .btn-outline:hover, .hero .btn-outline:hover{ background:var(--white); color:var(--black); border-color:var(--white); }
+
+/* ---------- work grid ---------- */
+.work-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:var(--line-l); }
+.section-dark .work-grid{ background:var(--line-d); }
+.work-tile{
+  position:relative; aspect-ratio:4/3; overflow:hidden;
+  background:var(--black); color:var(--white);
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:30px;
+}
+.work-tile::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(135deg, var(--grey-dark) 0%, var(--black) 70%);
+  transition:transform 0.4s ease;
+}
+.work-tile:nth-child(2n)::before{ background:linear-gradient(135deg, var(--red) 0%, var(--black) 75%); }
+.work-tile:hover::before{ transform:scale(1.06); }
+.work-tile .tile-content{ position:relative; z-index:2; }
+.work-tile .index-no{ color:rgba(245,244,239,0.6); display:block; margin-bottom:10px; }
+.work-tile h3{ margin-bottom:8px; text-transform:none; font-size:clamp(1.3rem,2.6vw,1.8rem); }
+.work-tile p{ color:rgba(245,244,239,0.75); font-size:0.94rem; max-width:36ch; }
+
+/* ---------- expertise / numbered list ---------- */
+.expertise-list{ border-top:1px solid var(--line-l); }
+.section-dark .expertise-list{ border-top:1px solid var(--line-d); }
+.expertise-row{
+  display:grid; grid-template-columns:70px 1fr auto; align-items:center; gap:24px;
+  padding:34px 0; border-bottom:1px solid var(--line-l);
+  transition:padding-left 0.2s ease;
+}
+.section-dark .expertise-row{ border-bottom:1px solid var(--line-d); }
+.expertise-row:hover{ padding-left:14px; }
+.expertise-row:hover h3{ color:var(--red); }
+.expertise-row h3{ text-transform:uppercase; font-size:clamp(1.4rem,3vw,2.1rem); transition:color 0.15s ease; }
+.expertise-row .desc{ font-size:0.94rem; }
+.expertise-row .go{ font-family:var(--mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; white-space:nowrap; }
+.expertise-row .go::after{ content:" →"; }
+
+/* ---------- quotes ---------- */
+.quote-block{ padding:50px 0; border-top:1px solid var(--line-l); }
+.section-dark .quote-block{ border-top:1px solid var(--line-d); }
+.quote-block:last-child{ border-bottom:1px solid var(--line-l); }
+.section-dark .quote-block:last-child{ border-bottom:1px solid var(--line-d); }
+.quote-block p{
+  font-family:var(--display); font-weight:600; text-transform:none;
+  font-size:clamp(1.3rem,2.6vw,1.9rem); line-height:1.25; letter-spacing:-0.01em;
+  max-width:44ch; margin-bottom:20px;
+}
+.quote-block cite{ font-family:var(--mono); font-size:0.76rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--grey); font-style:normal; }
+
+/* ---------- capability / credit strip ---------- */
+.strip{ overflow:hidden; border-top:1px solid var(--line-l); border-bottom:1px solid var(--line-l); background:var(--white); padding:26px 0; }
+.section-dark .strip{ border-top:1px solid var(--line-d); border-bottom:1px solid var(--line-d); background:var(--black); }
+.strip-track{ display:flex; gap:80px; white-space:nowrap; width:max-content; animation:scroll 32s linear infinite; }
+.strip span{ font-family:var(--display); font-weight:900; text-transform:uppercase; font-size:1.3rem; color:var(--grey); letter-spacing:-0.01em; }
+.strip span::after{ content:"—"; margin-left:80px; color:var(--line-l); }
+@keyframes scroll{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+
+/* ---------- stat row ---------- */
+.stat-row{ display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line-d); border-bottom:1px solid var(--line-d); }
+.stat{ padding:46px 30px; border-left:1px solid var(--line-d); }
+.stat:first-child{ border-left:none; }
+.stat .num{ font-family:var(--display); font-weight:900; font-size:clamp(2.2rem,4.6vw,3.6rem); color:var(--red); line-height:1; margin-bottom:10px; }
+.stat .label{ font-family:var(--mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:rgba(245,244,239,0.6); }
+
+/* ---------- method timeline (genuine sequence) ---------- */
+.stage-line{ position:relative; display:grid; grid-template-columns:repeat(5,1fr); gap:2px; margin-top:20px; }
+.stage-line::before{
+  content:""; position:absolute; top:11px; left:0; right:0; height:1px; background:var(--line-d); z-index:0;
+}
+.stage{ position:relative; z-index:1; padding-right:20px; }
+.stage-dot{ width:22px; height:22px; border-radius:50%; background:var(--black); border:1px solid var(--line-d); display:flex; align-items:center; justify-content:center; margin-bottom:26px; }
+.stage-dot::after{ content:""; width:8px; height:8px; border-radius:50%; background:var(--red); }
+.stage-no{ font-family:var(--mono); font-size:0.72rem; color:var(--red); display:block; margin-bottom:10px; }
+.stage h3{ text-transform:uppercase; font-size:1.05rem; margin-bottom:10px; }
+.stage p{ font-size:0.9rem; color:rgba(245,244,239,0.68); }
+
+/* ---------- pillar cards (parallel commitments, not a sequence) ---------- */
+.pillar-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--line-l); margin-top:10px; }
+.pillar{ background:var(--white); padding:30px 26px; min-height:200px; display:flex; flex-direction:column; justify-content:space-between; }
+.pillar .mark{ width:34px; height:34px; border:1px solid var(--black); border-radius:50%; position:relative; margin-bottom:20px; }
+.pillar .mark::after{ content:""; position:absolute; inset:9px; background:var(--red); border-radius:50%; }
+.pillar h3{ text-transform:none; font-size:1.05rem; margin-bottom:8px; }
+.pillar p{ font-size:0.88rem; color:var(--grey-dark); }
+
+/* ---------- ecosystem / roster cards ---------- */
+.eco-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line-l); margin-top:10px; }
+.section-dark .eco-grid{ background:var(--line-d); }
+.eco-card{ background:var(--black); color:var(--white); padding:34px 28px; display:flex; flex-direction:column; gap:16px; min-height:280px; }
+.eco-card .avatar{ width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg, var(--red), var(--grey-dark)); flex-shrink:0; }
+.eco-tag{ font-family:var(--mono); font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--red); border:1px solid rgba(230,58,36,0.5); padding:5px 10px; border-radius:2px; align-self:flex-start; }
+.eco-card h3{ text-transform:none; font-size:1.4rem; }
+.eco-card .role{ font-family:var(--mono); font-size:0.76rem; color:rgba(245,244,239,0.55); text-transform:uppercase; letter-spacing:0.04em; margin-top:-10px; }
+.eco-card p{ font-size:0.9rem; color:rgba(245,244,239,0.75); flex:1; }
+
+/* ---------- roster / list rows ---------- */
+.roster-list{ border-top:1px solid var(--line-l); }
+.section-dark .roster-list{ border-top:1px solid var(--line-d); }
+.roster-row{
+  display:grid; grid-template-columns:90px 1fr 2fr; gap:26px; align-items:start;
+  padding:34px 0; border-bottom:1px solid var(--line-l);
+}
+.section-dark .roster-row{ border-bottom:1px solid var(--line-d); }
+.roster-row h3{ text-transform:none; font-size:clamp(1.4rem,2.6vw,1.9rem); font-weight:800; }
+.roster-row p{ color:var(--grey); }
+
+/* ---------- service rows ---------- */
+.service-row{ padding:48px 0; border-top:1px solid var(--line-l); display:grid; grid-template-columns:1fr 2fr; gap:40px; }
+.service-row:last-child{ border-bottom:1px solid var(--line-l); }
+.service-row h2{ font-size:clamp(2rem,4.2vw,3rem); }
+.price-tag{ font-family:var(--mono); font-size:0.8rem; letter-spacing:0.05em; color:var(--red); }
+.service-row ul{ margin-top:14px; }
+.service-row li{ font-size:0.94rem; color:var(--grey-dark); padding:8px 0; border-top:1px solid var(--line-l); }
+.service-row li:first-child{ border-top:none; }
+
+/* ---------- booking paths ---------- */
+.path-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line-d); margin-top:10px; }
+.path-card{ background:var(--black); padding:38px 30px; display:flex; flex-direction:column; gap:18px; min-height:260px; }
+.path-card .index-no{ color:var(--red); }
+.path-card h3{ text-transform:uppercase; font-size:1.2rem; }
+.path-card p{ font-size:0.92rem; color:rgba(245,244,239,0.7); flex:1; }
+.path-card .btn{ align-self:flex-start; }
+
+/* ---------- steps ---------- */
+.steps{ counter-reset:step; }
+.step{ display:grid; grid-template-columns:90px 1fr; gap:26px; padding:30px 0; border-top:1px solid var(--line-l); }
+.section-dark .step{ border-top:1px solid var(--line-d); }
+.step:last-child{ border-bottom:1px solid var(--line-l); }
+.section-dark .step:last-child{ border-bottom:1px solid var(--line-d); }
+.step-num{ counter-increment:step; font-family:var(--mono); font-size:0.85rem; color:var(--grey); }
+.step-num::before{ content:"0" counter(step); }
+
+/* ---------- CTA bar ---------- */
+.cta-bar{ background:var(--red); color:var(--black); text-align:center; padding:90px 0; }
+.cta-bar h2{ margin-bottom:30px; }
+.cta-bar .btn{ background:var(--black); color:var(--white); border-color:var(--black); }
+.cta-bar .btn:hover{ background:transparent; color:var(--black); }
+.cta-bar .btn-outline{ background:transparent; color:var(--black); border-color:var(--black); }
+.cta-bar .btn-outline:hover{ background:var(--black); color:var(--white); }
+.cta-actions{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+/* ---------- newsletter ---------- */
+.newsletter{ display:flex; gap:20px; align-items:center; flex-wrap:wrap; justify-content:space-between; }
+.newsletter form{ display:flex; gap:0; border-bottom:1px solid var(--white); min-width:280px; flex:1; max-width:420px; }
+.newsletter input{ flex:1; background:transparent; border:none; padding:12px 4px; color:var(--white); font-family:var(--body); font-size:1rem; }
+.newsletter input::placeholder{ color:rgba(245,244,239,0.5); }
+.newsletter input:focus{ outline:none; }
+.newsletter button{ font-family:var(--mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--red); }
+
+/* ---------- form ---------- */
+.form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.field{ margin-bottom:24px; }
+.field.full{ grid-column:1 / -1; }
+label{ display:block; font-family:var(--mono); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px; color:var(--grey); }
+input, select, textarea{
+  width:100%; background:transparent; border:none; border-bottom:1px solid var(--black);
+  padding:12px 2px; font-family:var(--body); font-size:1.05rem; color:var(--black);
+}
+input:focus, select:focus, textarea:focus{ outline:none; border-color:var(--red); }
+textarea{ resize:vertical; min-height:110px; }
+.form-note{ font-family:var(--mono); font-size:0.76rem; color:var(--grey); margin-top:18px; }
+.form-status{ font-family:var(--mono); font-size:0.78rem; margin-top:18px; display:none; }
+.form-status.show{ display:block; }
+
+/* ---------- contact info list ---------- */
+.info-list{ margin-top:30px; }
+.info-list dt{ font-family:var(--mono); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--grey); margin-top:22px; }
+.info-list dd{ font-size:1.05rem; margin-top:6px; }
+
+/* ---------- footer ---------- */
+footer{ background:var(--black); color:var(--white); padding:80px 0 30px; }
+.footer-grid{ display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:50px; padding-bottom:50px; border-bottom:1px solid var(--line-d); margin-bottom:26px; }
+footer h4{ font-family:var(--mono); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.12em; color:rgba(245,244,239,0.5); margin-bottom:16px; }
+footer a{ display:block; font-size:0.96rem; margin-bottom:10px; color:rgba(245,244,239,0.9); }
+footer a:hover{ color:var(--red); }
+.footer-bottom{ display:flex; justify-content:space-between; font-family:var(--mono); font-size:0.7rem; color:rgba(245,244,239,0.45); flex-wrap:wrap; gap:10px; }
+
+/* ---------- focus ---------- */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+  outline:2px solid var(--red); outline-offset:3px;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .stage-line{ grid-template-columns:1fr; gap:0; }
+  .stage-line::before{ display:none; }
+  .stage{ padding:24px 0; border-top:1px solid var(--line-d); }
+  .pillar-grid{ grid-template-columns:repeat(2,1fr); }
+  .path-grid{ grid-template-columns:1fr; }
+  .eco-grid{ grid-template-columns:repeat(2,1fr); }
+  .stat-row{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:900px){
+  .work-grid{ grid-template-columns:1fr; }
+  .expertise-row{ grid-template-columns:1fr; gap:8px; }
+  .expertise-row .go{ justify-self:start; }
+  .roster-row{ grid-template-columns:1fr; gap:8px; }
+  .service-row{ grid-template-columns:1fr; }
+  .stat{ border-left:none; border-top:1px solid var(--line-d); }
+  .stat:first-child{ border-top:none; }
+  .footer-grid{ grid-template-columns:1fr; gap:30px; }
+  .form-grid{ grid-template-columns:1fr; }
+  .newsletter{ flex-direction:column; align-items:flex-start; }
+  .eco-grid{ grid-template-columns:1fr; }
+  .pillar-grid{ grid-template-columns:1fr; }
+}
+@media (max-width:720px){
+  .nav-links{
+    position:fixed; top:72px; left:0; right:0; bottom:0; background:var(--black);
+    flex-direction:column; padding:36px 40px; align-items:flex-start; gap:24px;
+    transform:translateX(100%); transition:transform 0.2s ease;
+  }
+  .nav-links.open{ transform:translateX(0); }
+  .nav-toggle{ display:block; font-family:var(--mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; border:1px solid var(--white); padding:9px 14px; }
+  .scroll-cue{ display:none; }
+}
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  .strip-track{ animation:none; }
+  .scroll-cue .bar::after{ animation:none; }
+}
+
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">SILKCRAYON<span class="dot">.</span></a>
+    <button class="nav-toggle" aria-expanded="false">MENU</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="futures.html">Silkfutures</a>
+      <a href="records.html">Records</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html" class="nav-cta">Start a project</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- VIDEO HERO -->
+  <section class="video-hero">
+    <video class="video-hero-media" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="assets/hero-space.webm" type="video/webm">
+      <source src="assets/hero-space.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+    <div class="video-hero-word">
+      <h1>SILKCRAYON<span class="accent">.</span></h1>
+    </div>
+    <div class="scroll-cue"><span class="bar"></span> Scroll</div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section class="statement-section">
+    <div class="wrap">
+      <h2 class="word-black">SILKCRAYON.</h2>
+      <p class="statement">A production agency &amp; label that develops artists responsibly.</p>
+    </div>
+  </section>
+
+  <!-- TAGLINE -->
+  <section class="section-dark tagline-section">
+    <div class="hero-star" aria-hidden="true">
+      <div class="bloom"></div>
+      <div class="streak"></div>
+      <svg viewBox="0 0 200 200">
+        <defs>
+          <radialGradient id="starCore" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#F5F4EF" stop-opacity="1"/>
+            <stop offset="45%" stop-color="#F5F4EF" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#E63A24" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="rayGradA" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#F5F4EF" stop-opacity="0.95"/>
+            <stop offset="18%" stop-color="#F5F4EF" stop-opacity="0.55"/>
+            <stop offset="55%" stop-color="#E63A24" stop-opacity="0.18"/>
+            <stop offset="100%" stop-color="#E63A24" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="rayGradB" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#F5F4EF" stop-opacity="0.9"/>
+            <stop offset="30%" stop-color="#F5F4EF" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#F5F4EF" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <g class="ray-primary">
+          <path d="M 100 4 L 105.4 87.1 L 167.9 32.1 L 112.9 94.6 L 196 100 L 112.9 105.4 L 167.9 167.9 L 105.4 112.9 L 100 196 L 94.6 112.9 L 32.1 167.9 L 87.1 105.4 L 4 100 L 87.1 94.6 L 32.1 32.1 L 94.6 87.1 Z" fill="url(#rayGradA)"/>
+        </g>
+        <g class="ray-secondary">
+          <path d="M 126.8 35.3 L 104.2 95.8 L 164.7 73.2 L 106 100 L 164.7 126.8 L 104.2 104.2 L 126.8 164.7 L 100 106 L 73.2 164.7 L 95.8 104.2 L 35.3 126.8 L 94 100 L 35.3 73.2 L 95.8 95.8 L 73.2 35.3 L 100 94 Z" fill="url(#rayGradB)"/>
+        </g>
+        <circle class="star-core" cx="100" cy="100" r="10" fill="url(#starCore)"/>
+      </svg>
+    </div>
+    <div class="wrap">
+      <span class="eyebrow">Production agency &amp; label — London</span>
+      <h2 class="big-tagline">WE MAKE RECORDS. WE MAKE ARTISTS WHO <span class="accent">LAST.</span></h2>
+      <p class="lede">Silkcrayon develops artists through Silkfutures, releases them through Silk Records, and takes on bespoke mixing, production and music video work for anyone who refuses to sound average. Same studio, same standards, three ways in.</p>
+      <div style="display:flex; gap:18px; flex-wrap:wrap;">
+        <a href="contact.html" class="btn">Book the studio</a>
+        <a href="futures.html" class="btn btn-outline">Explore Silkfutures</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WORK -->
+  <section class="section-line">
+    <div class="wrap section-head">
+      <span class="eyebrow">Selected work</span>
+      <h2>RECENT <span class="accent">RUNS.</span></h2>
+    </div>
+    <div class="work-grid">
+      <a class="work-tile" href="services.html">
+        <div class="tile-content">
+          <span class="index-no">MIX &amp; MASTER</span>
+          <h3>Nova Bexley — Aftertaste EP</h3>
+          <p>Five-track alt-R&amp;B EP, mixed and mastered in eleven days flat.</p>
+        </div>
+      </a>
+      <a class="work-tile" href="services.html">
+        <div class="tile-content">
+          <span class="index-no">PRODUCTION</span>
+          <h3>Kojo Vale — Weightless</h3>
+          <p>Full production and top-line, from a bedroom voice note to a finished single.</p>
+        </div>
+      </a>
+      <a class="work-tile" href="services.html">
+        <div class="tile-content">
+          <span class="index-no">MUSIC VIDEO</span>
+          <h3>Ess Marlowe — Corner Shop Sermon</h3>
+          <p>One-take video shot on the Old Kent Road, cut inside 48 hours.</p>
+        </div>
+      </a>
+      <a class="work-tile" href="records.html">
+        <div class="tile-content">
+          <span class="index-no">LABEL · SKC004</span>
+          <h3>Rue Solace — Paper Cuts</h3>
+          <p>Debut Silk Records release — from Silkfutures cohort to store shelves.</p>
+        </div>
+      </a>
+    </div>
+    <div class="wrap" style="margin-top:40px;">
+      <a href="services.html" class="btn btn-outline">See all services</a>
+    </div>
+  </section>
+
+  <!-- DIVISIONS -->
+  <section class="section-dark section-line">
+    <div class="wrap">
+      <span class="eyebrow">What we run</span>
+      <h2 style="margin:20px 0 10px;">THREE DIVISIONS. <span class="accent">ONE STUDIO.</span></h2>
+    </div>
+    <div class="wrap">
+      <div class="expertise-list">
+        <div class="expertise-row">
+          <span class="index-no">01</span>
+          <div>
+            <h3>Silkfutures</h3>
+            <p class="desc dim-d" style="margin-top:8px; max-width:52ch;">A twelve-month artist development programme — coaching, studio time, media training and welfare support for unsigned talent.</p>
+          </div>
+          <a href="futures.html" class="go">Enter the programme</a>
+        </div>
+        <div class="expertise-row">
+          <span class="index-no">02</span>
+          <div>
+            <h3>Silk Records</h3>
+            <p class="desc dim-d" style="margin-top:8px; max-width:52ch;">Our label. We release artists who've come through Silkfutures, and a handful more we simply believe in.</p>
+          </div>
+          <a href="records.html" class="go">Meet the roster</a>
+        </div>
+        <div class="expertise-row">
+          <span class="index-no">03</span>
+          <div>
+            <h3>Bespoke</h3>
+            <p class="desc dim-d" style="margin-top:8px; max-width:52ch;">Mixing, production and music video for hire. Bring us a session, a single, or a treatment.</p>
+          </div>
+          <a href="services.html" class="go">See services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SILKFUTURES METHOD -->
+  <section class="section-dark">
+    <div class="wrap section-head">
+      <span class="eyebrow">The Silkfutures method</span>
+      <h2>WE DON'T JUST SIGN VOICES. <span class="accent">WE BUILD THEM.</span></h2>
+      <p class="lede dim-d">Every artist who comes through Silkfutures leaves able to run a career, not just release a song. That means real craft, a clear voice, and the judgement to use a public platform responsibly — before the platform gets big.</p>
+    </div>
+    <div class="wrap">
+      <div class="stage-line">
+        <div class="stage">
+          <div class="stage-dot"></div>
+          <span class="stage-no">01 — Discover</span>
+          <h3>Open-door A&amp;R</h3>
+          <p>A monthly unsigned night and a demo inbox read by people, not a playlist algorithm.</p>
+        </div>
+        <div class="stage">
+          <div class="stage-dot"></div>
+          <span class="stage-no">02 — Develop</span>
+          <h3>Craft &amp; voice</h3>
+          <p>Songwriting camps and vocal or production coaching to find an actual voice instead of a trend.</p>
+        </div>
+        <div class="stage">
+          <div class="stage-dot"></div>
+          <span class="stage-no">03 — Direct</span>
+          <h3>Media training</h3>
+          <p>Interview and public-speaking practice, so an artist understands the weight of an audience before they have one.</p>
+        </div>
+        <div class="stage">
+          <div class="stage-dot"></div>
+          <span class="stage-no">04 — Deliver</span>
+          <h3>Studio &amp; release</h3>
+          <p>Studio time, mixing, mastering, visual identity and a release plan — via Silk Records or independently.</p>
+        </div>
+        <div class="stage">
+          <div class="stage-dot"></div>
+          <span class="stage-no">05 — Sustain</span>
+          <h3>Aftercare</h3>
+          <p>Royalty education and welfare support that carries on well after the first single drops.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESPONSIBLE DEVELOPMENT PILLARS -->
+  <section class="section-line">
+    <div class="wrap section-head">
+      <span class="eyebrow">How we keep it responsible</span>
+      <h2>WE GROW <span class="accent">PEOPLE,</span> NOT JUST PROFILES.</h2>
+      <p class="lede">A big audience is a responsibility before it's an asset. These five commitments run alongside every stage of Silkfutures, not just at the end of it.</p>
+    </div>
+    <div class="wrap">
+      <div class="pillar-grid">
+        <div class="pillar">
+          <div><div class="mark"></div><h3>Mental health &amp; welfare</h3></div>
+          <p>A named welfare contact for every artist, independent of their A&amp;R relationship.</p>
+        </div>
+        <div class="pillar">
+          <div><div class="mark"></div><h3>Financial literacy</h3></div>
+          <p>Plain-English contracts and royalty splits, explained before anything is signed.</p>
+        </div>
+        <div class="pillar">
+          <div><div class="mark"></div><h3>Media &amp; public voice</h3></div>
+          <p>Training on interviews and socials, so no one finds out how it works while it's live.</p>
+        </div>
+        <div class="pillar">
+          <div><div class="mark"></div><h3>Creative ownership</h3></div>
+          <p>Artists keep a real stake in their masters and publishing. We're a partner, not a landlord.</p>
+        </div>
+        <div class="pillar">
+          <div><div class="mark"></div><h3>Long-term aftercare</h3></div>
+          <p>We stay in the room for the second record, and the harder conversations too.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECOSYSTEM PREVIEW -->
+  <section class="section-dark section-line">
+    <div class="wrap section-head">
+      <span class="eyebrow">The ecosystem</span>
+      <h2>WHO'S IN THE <span class="accent">ROOM RIGHT NOW.</span></h2>
+      <p class="lede dim-d">A snapshot of artists moving through Silkfutures and onto Silk Records — some mid-programme, some already released.</p>
+    </div>
+    <div class="wrap">
+      <div class="eco-grid">
+        <div class="eco-card">
+          <div class="avatar"></div>
+          <span class="eco-tag">Silk Records</span>
+          <h3>Rue Solace</h3>
+          <span class="role">Alt-pop / vocalist</span>
+          <p>Came through Silkfutures cohort 02, released her debut EP <em>Paper Cuts</em> in 2025, and is midway through her first headline tour.</p>
+        </div>
+        <div class="eco-card">
+          <div class="avatar"></div>
+          <span class="eco-tag">Silkfutures · Cohort 04</span>
+          <h3>Kojo Vale</h3>
+          <span class="role">Producer / vocalist</span>
+          <p>Producer-vocalist from Lewisham, six months into the programme and prepping his first single with in-house production.</p>
+        </div>
+        <div class="eco-card">
+          <div class="avatar"></div>
+          <span class="eco-tag">Silkfutures · Cohort 04</span>
+          <h3>Delphine Row</h3>
+          <span class="role">Songwriter / multi-instrumentalist</span>
+          <p>Finished media training this spring and is heading into her third studio block.</p>
+        </div>
+      </div>
+      <div style="margin-top:40px;">
+        <a href="futures.html" class="btn btn-outline">See the full programme</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stat-row" style="background:var(--black); color:var(--white);">
+    <div class="stat"><div class="num">480+</div><div class="label">Tracks mixed &amp; mastered</div></div>
+    <div class="stat"><div class="num">26</div><div class="label">Label releases to date</div></div>
+    <div class="stat"><div class="num">34</div><div class="label">Music videos directed</div></div>
+    <div class="stat"><div class="num">12</div><div class="label">Artists in development now</div></div>
+  </div>
+
+  <!-- QUOTES -->
+  <section class="section-line">
+    <div class="wrap">
+      <span class="eyebrow">What people say</span>
+      <h2 style="margin:20px 0 10px;">WORD ON THE STREET.</h2>
+      <div style="margin-top:20px;">
+        <div class="quote-block">
+          <p>Silkcrayon didn't just make my song sound bigger. They sat me down and explained my own contract before I signed it. Nobody had ever done that.</p>
+          <cite>— Rue Solace, Silk Records</cite>
+        </div>
+        <div class="quote-block">
+          <p>They treated the video like it actually mattered, not like content. That's rare, and it shows in the final cut.</p>
+          <cite>— Ess Marlowe, artist</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITY STRIP -->
+  <div class="strip" aria-label="capabilities">
+    <div class="strip-track">
+      <span>MIXING</span>
+      <span>MASTERING</span>
+      <span>PRODUCTION</span>
+      <span>ARTIST DEVELOPMENT</span>
+      <span>MEDIA TRAINING</span>
+      <span>MUSIC VIDEO</span>
+      <span>A&amp;R</span>
+      <span>LABEL SERVICES</span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-bar">
+    <div class="wrap">
+      <h2>GOT A SESSION, A SINGLE, OR AN ARTIST<br>WHO NEEDS ROOM TO GROW?</h2>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn">Book the studio</a>
+        <a href="futures.html#apply" class="btn btn-outline">Apply to Silkfutures</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Silkcrayon</h4>
+        <p style="opacity:0.8; max-width:32ch; font-size:0.96rem; margin-bottom:24px;">Production agency and label. Silkfutures develops the artists, Silk Records releases them, and our bespoke studio does the rest.</p>
+        <div class="newsletter">
+          <form class="js-form" onsubmit="return false;">
+            <input type="email" placeholder="Your email" aria-label="Email for newsletter" required>
+            <button type="submit">Subscribe →</button>
+          </form>
+        </div>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <a href="futures.html">Silkfutures</a>
+        <a href="records.html">Silk Records</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="#">Instagram</a>
+        <a href="#">SoundCloud / Spotify</a>
+        <a href="mailto:studio@silkcrayon.com">studio@silkcrayon.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Peckham, London — © <span class="js-year"></span> Silkcrayon</span>
+      <span>Catalog SKC001–</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// silkcrayon — shared behaviour
+
+document.addEventListener('DOMContentLoaded', () => {
+  // mobile nav toggle
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.textContent = open ? 'CLOSE' : 'MENU';
+      toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.textContent = 'MENU';
+      });
+    });
+  }
+
+  // duplicate strip content for seamless marquee loop
+  document.querySelectorAll('.strip-track').forEach(track => {
+    track.innerHTML += track.innerHTML;
+  });
+
+  // mark active nav link
+  const path = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    if (a.getAttribute('href') === path) a.classList.add('active');
+  });
+
+  // footer year
+  document.querySelectorAll('.js-year').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
+
+  // respect reduced-motion preference for the hero video
+  const heroVideo = document.querySelector('.video-hero-media');
+  if (heroVideo && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    heroVideo.pause();
+    heroVideo.removeAttribute('autoplay');
+  }
+
+  // contact / apply forms — no backend wired up yet, so confirm locally
+  document.querySelectorAll('.js-form').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const status = form.querySelector('.form-status');
+      if (status) {
+        status.textContent = "Got it — that's landed in our inbox. We reply to every enquiry within two working days.";
+        status.classList.add('show');
+      }
+      form.reset();
+    });
+  });
+});
+
+</script>
+</body>
+</html>
