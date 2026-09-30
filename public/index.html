@@ -443,10 +443,11 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 </div></div>
 
 <section class="stat-band"><div class="wrap"><div class="stat-row">
-<div class="fi"><div class="stat-num">68</div><div class="stat-label">Young people · 2026 so far</div></div>
-<div class="fi fd1"><div class="stat-num">259</div><div class="stat-label">Recorded engagements</div></div>
-<div class="fi fd2"><div class="stat-num">79</div><div class="stat-label">Delivery dates</div></div>
-<div class="fi fd3"><div class="stat-num">5</div><div class="stat-label">Mentors represented</div></div>
+<div class="fi"><div class="stat-num" id="home-live-young-people">—</div><div class="stat-label">Young people · <span id="home-live-year">this year</span> so far</div></div>
+<div class="fi fd1"><div class="stat-num" id="home-live-engagements">—</div><div class="stat-label">Recorded engagements</div></div>
+<div class="fi fd2"><div class="stat-num" id="home-live-delivery-dates">—</div><div class="stat-label">Delivery dates</div></div>
+<div class="fi fd3"><div class="stat-num" id="home-live-mentors">—</div><div class="stat-label">Mentors represented</div></div>
+<p id="home-live-range" style="grid-column:1/-1;font-size:.8rem;color:var(--g600)">Loading the latest programme figures…</p>
 </div></div></section>
 
 <div class="photo-strip">
@@ -1469,6 +1470,8 @@ if(refForm){
   function setText(id, value) {
     var el = document.getElementById(id);
     if (el && value !== undefined && value !== null) el.textContent = value;
+    var home = document.getElementById(id.replace("impact-live-", "home-live-"));
+    if (home && value !== undefined && value !== null) home.textContent = value;
   }
 
   var lastChecked = null;
