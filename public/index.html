@@ -1007,12 +1007,12 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 <div class="impact-band fi">
 <div class="pipe-flower-w pipe-f1" style="opacity:.04"></div>
 <div class="wrap" style="position:relative;z-index:1">
-<h2 style="font-family:var(--fd);font-size:clamp(1.6rem,3vw,2.4rem)"><span id="impact-live-year">2026</span> SO FAR</h2><p id="impact-live-range" style="font-size:.9rem;opacity:.8;max-width:560px">Recorded between 14 January and 2 September 2026.</p>
+<h2 style="font-family:var(--fd);font-size:clamp(1.6rem,3vw,2.4rem)"><span id="impact-live-year">This year</span> SO FAR</h2><p id="impact-live-range" style="font-size:.9rem;opacity:.8;max-width:560px">Loading the latest programme figures…</p>
 <div class="imp-grid">
-<div class="imp-card"><div class="num" id="impact-live-young-people">68</div><div class="lbl">Young people</div></div>
-<div class="imp-card"><div class="num" id="impact-live-engagements">259</div><div class="lbl">Recorded engagements</div></div>
-<div class="imp-card"><div class="num" id="impact-live-delivery-dates">79</div><div class="lbl">Delivery dates</div></div>
-<div class="imp-card"><div class="num" id="impact-live-mentors">5</div><div class="lbl">Mentors represented</div></div>
+<div class="imp-card"><div class="num" id="impact-live-young-people">—</div><div class="lbl">Young people</div></div>
+<div class="imp-card"><div class="num" id="impact-live-engagements">—</div><div class="lbl">Recorded engagements</div></div>
+<div class="imp-card"><div class="num" id="impact-live-delivery-dates">—</div><div class="lbl">Delivery dates</div></div>
+<div class="imp-card"><div class="num" id="impact-live-mentors">—</div><div class="lbl">Mentors represented</div></div>
 </div>
 <p style="font-size:.9rem;line-height:1.8;opacity:.88;max-width:760px;margin-top:26px">Our 2026 records show more than reach. Several young people have engaged between 10 and 21 times, demonstrating the sustained relationships at the centre of the Silkfutures model. Activity is represented across Silkfutures, Grangetown, St Mellons and Set Pace.</p>
 </div></div>
@@ -1471,30 +1471,39 @@ if(refForm){
     if (el && value !== undefined && value !== null) el.textContent = value;
   }
 
-  fetch(IMPACT_ENDPOINT, { headers: { "Accept": "application/json" } })
-    .then(function (response) {
-      if (!response.ok) throw new Error("Impact API unavailable");
-      return response.json();
-    })
-    .then(function (stats) {
-      setText("impact-live-year", stats.year);
-      setText("impact-live-young-people", stats.youngPeople);
-      setText("impact-live-engagements", stats.recordedEngagements);
-      setText("impact-live-delivery-dates", stats.deliveryDates);
-      setText("impact-live-mentors", stats.mentorsRepresented);
+  var lastChecked = null;
+  var inFlight = false;
+  function refreshImpact() {
+    if (inFlight || document.hidden) return;
+    inFlight = true;
+    fetch(IMPACT_ENDPOINT, { cache: "no-store", headers: { "Accept": "application/json" }, signal: AbortSignal.timeout(15000) })
+      .then(function (response) {
+        if (!response.ok) throw new Error("Impact API unavailable");
+        return response.json();
+      })
+      .then(function (stats) {
+        var keys = ["year", "youngPeople", "recordedEngagements", "deliveryDates", "mentorsRepresented"];
+        if (!keys.every(function (key) { return Number.isInteger(stats[key]) && stats[key] >= 0; })) throw new Error("Invalid impact figures");
+        setText("impact-live-year", stats.year);
+        setText("impact-live-young-people", stats.youngPeople);
+        setText("impact-live-engagements", stats.recordedEngagements);
+        setText("impact-live-delivery-dates", stats.deliveryDates);
+        setText("impact-live-mentors", stats.mentorsRepresented);
+        lastChecked = new Date();
+        var first = formatDate(stats.firstRecordedDate), last = formatDate(stats.lastRecordedDate);
+        var range = first && last ? "Programme data recorded between " + first + " and " + last + ". " : "No programme sessions recorded this year yet. ";
+        setText("impact-live-range", range + "Checked " + lastChecked.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" }) + ". Updates automatically.");
+      })
+      .catch(function () {
+        setText("impact-live-range", lastChecked ? "Live connection temporarily unavailable. Showing figures last checked at " + lastChecked.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" }) + ". Retrying automatically." : "Live figures are temporarily unavailable. Please check back shortly.");
+      })
+      .finally(function () { inFlight = false; });
+  }
+  refreshImpact();
+  setInterval(refreshImpact, 60000);
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) refreshImpact(); });
+  window.addEventListener("online", refreshImpact);
 
-      var first = formatDate(stats.firstRecordedDate);
-      var last = formatDate(stats.lastRecordedDate);
-      var range = document.getElementById("impact-live-range");
-      if (range && first && last) {
-        range.textContent = "Live programme data recorded between " + first + " and " + last + ".";
-      } else if (range) {
-        range.textContent = "Live programme data from SilkFutures Pathways.";
-      }
-    })
-    .catch(function (error) {
-      console.warn("[SilkFutures impact] Using published fallback figures:", error);
-    });
 })();
 </script>
 
