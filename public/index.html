@@ -1443,6 +1443,8 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 <p style="font-size:.82rem;color:var(--g400);margin-bottom:24px">This form sends directly to our Managing Director. We'll respond within 48 hours.</p>
 
 <form id="refForm">
+<div style="position:absolute;left:-9999px" aria-hidden="true"><label>Leave blank<input name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+<p id="refStatus" role="status" aria-live="polite"></p>
 <input type="hidden" name="_subject" value="New Referral — Silkfutures Website">
 
 <div class="form-section-title">YOUR DETAILS</div>
@@ -1468,7 +1470,7 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 <div class="form-group full"><label>How did you hear about Silkfutures?</label><input type="text" name="source"></div>
 </div>
 
-<div class="form-check"><input type="checkbox" id="consent" required><label for="consent">I confirm that the young person (and/or their parent/guardian if under 18) is aware of this referral and has given consent to share their information with Silkfutures CIC.</label></div>
+<div class="form-check"><input type="checkbox" id="consent" name="contact_consent" value="yes" required><label for="consent">I confirm that the young person (and/or their parent/guardian if under 18) is aware of this referral and has given consent to share their information with Silkfutures CIC.</label></div>
 
 <p class="form-note">Information shared in this form will be treated confidentially and used solely for the purpose of assessing suitability for Silkfutures programmes.</p>
 
@@ -1607,32 +1609,6 @@ window.setDonateMode = function(mode){
   freqs.forEach(function(f){f.textContent=mode==='monthly'?'Per month':'One-off donation'});
 };
 
-var refForm = document.getElementById('refForm');
-if(refForm){
-  refForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    var btn = document.getElementById('refSubmitBtn');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    var data = new FormData(refForm);
-    fetch('https://formspree.io/f/meervokw', {
-      method: 'POST',
-      body: data,
-      headers: {'Accept': 'application/json'}
-    }).then(function(response){
-      if(response.ok){
-        refForm.style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-      } else {
-        btn.textContent = 'Something went wrong — please try again';
-        btn.disabled = false;
-      }
-    }).catch(function(){
-      btn.textContent = 'Network error — please try again';
-      btn.disabled = false;
-    });
-  });
-}
 
 })();
 </script>
@@ -1695,4 +1671,5 @@ if(refForm){
 })();
 </script>
 
+<script src="/applications-form.js"></script>
 </body></html>
