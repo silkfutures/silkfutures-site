@@ -9,3 +9,5 @@ header{background:var(--white);border-color:var(--g200)}header a{color:var(--g90
 .hero{background:var(--hero-grad);color:var(--white)}.hero small{color:#d1fae5;letter-spacing:.1em}.hero h1{line-height:.98}.hero p{color:var(--white)}
 .form-wrap{border-color:var(--g200);border-radius:16px;box-shadow:0 15px 50px #00000008}.steps span{background:var(--g50);border-color:var(--g200);color:var(--g700)}input,select,textarea{border-color:var(--g200);color:var(--g800);font-family:var(--fb)}.choices label{background:var(--g50);border-color:var(--g200);color:var(--g700)}.hint{color:var(--g500)}.notice{background:#f0f8f5;color:#334155}.notice a{color:var(--blue)}input[type=checkbox]{accent-color:var(--blue)}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:4px}footer{color:var(--g500);border-color:var(--g200)}
+
+header .brand .site-logo{display:block;width:48px;height:48px;object-fit:contain;margin:0}header .brand{min-height:48px;flex-shrink:0}
