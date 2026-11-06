@@ -1,4 +1,10 @@
 {
   "buildCommand": "",
-  "outputDirectory": "public"
+  "outputDirectory": "public",
+  "rewrites": [
+    {
+      "source": "/get-involved",
+      "destination": "/get-involved.html"
+    }
+  ]
 }
