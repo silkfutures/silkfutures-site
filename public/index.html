@@ -457,6 +457,17 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 
 /* Keep touch targets clear of the hero and usable on narrow screens. */
 .mob-toggle{min-width:44px;min-height:44px;align-items:center;justify-content:center}.nav-logo{display:flex;align-items:center;min-height:44px}a:focus-visible,button:focus-visible{outline:3px solid #059669;outline-offset:5px}@media(max-width:768px){.nav-links.open a{display:flex;align-items:center;min-height:44px}.nav-links.open{gap:8px}.nav-inner{padding:0 24px}}
+.home-studio-gallery{padding:clamp(24px,5vw,64px) 0}
+.home-studio-grid{display:grid;grid-template-columns:3fr 2fr;gap:clamp(10px,2vw,24px);align-items:stretch}
+.home-studio-landscapes{display:grid;gap:clamp(10px,2vw,24px)}
+.home-studio-grid img{display:block;width:100%;height:100%;object-fit:cover;border-radius:12px}
+.home-studio-landscapes img{aspect-ratio:3/2}
+.home-studio-grid>.home-studio-portrait{min-height:0;object-position:65% center}
+@media(max-width:640px){
+  .home-studio-grid{grid-template-columns:1fr}
+  .home-studio-grid>.home-studio-portrait{height:auto;aspect-ratio:4/5}
+}
+.hero-photo img[src="images/home-studio-group.jpg"]{aspect-ratio:3/2}
 </style>
 </head>
 <body>
@@ -491,7 +502,7 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 <a href="/get-involved" class="btn btn-white">Get involved</a>
 <a href="#" class="btn btn-glass" data-page="programmes">Explore our pathways</a>
 </div>
-</div><figure class="hero-photo"><img src="images/gbgc-group-session.jpg" alt="Young people and a mentor creating music together around a microphone" fetchpriority="high"></figure></div>
+</div><figure class="hero-photo"><img src="images/home-studio-group.jpg" alt="Three people gathered around the recording studio workstation" fetchpriority="high"></figure></div>
 </section>
 
 <div class="ticker"><div class="ticker-track">
@@ -512,6 +523,17 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 <img src="images/woods-group.jpg" alt="Set Pace wellbeing session in the woods" loading="lazy">
 <img src="images/autumn-joy.jpg" alt="Young person on a Facing Fears trip" style="object-position:center 40%" loading="lazy">
 </div>
+
+<section class="home-studio-gallery" aria-labelledby="home-studio-title"><div class="wrap">
+<h2 id="home-studio-title" class="section-heading">INSIDE THE STUDIO</h2>
+<div class="home-studio-grid">
+<div class="home-studio-landscapes">
+<img src="images/home-studio-conversation.jpg" alt="A person in a Silkfutures shirt speaking in the recording studio" loading="lazy">
+<img src="images/home-studio-listening.jpg" alt="Two young people listening from a beanbag in the studio" loading="lazy">
+</div>
+<img class="home-studio-portrait" src="images/home-studio-writing.jpg" alt="A young person writing with a pencil in the studio" loading="lazy">
+</div>
+</div></section>
 
 <section class="home-testimonial"><div class="wrap">
 <figure><blockquote>“He now has visions and goals for his future, and a sense of belonging that makes such a difference. <em>He now feels part of something bigger — and that means everything.</em>”</blockquote><figcaption>A parent’s perspective · excerpt</figcaption></figure>
