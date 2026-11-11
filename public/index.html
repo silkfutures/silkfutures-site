@@ -468,6 +468,42 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
   .home-studio-grid>.home-studio-portrait{height:auto;aspect-ratio:4/5}
 }
 .hero-photo img[src="images/home-studio-group.jpg"]{aspect-ratio:3/2}
+
+/* Photography-led homepage: generous frames and captions that stay readable. */
+#page-home .hero{min-height:0;padding-top:var(--nh);background:linear-gradient(135deg,#065f46,#123e72 65%,#3730a3)}
+#page-home .hero-layout{max-width:none;width:100%;padding:0;gap:0;grid-template-columns:minmax(0, .85fr) minmax(0,1.15fr);align-items:stretch}
+#page-home .hero-content{padding:64px clamp(24px,4vw,72px);align-self:center}
+#page-home .hero h1{font-size:clamp(3rem,4.5vw,5.4rem)}
+#page-home .hero-label{line-height:1.6;margin-bottom:22px}
+#page-home .hero-body{font-size:1rem;line-height:1.65}
+#page-home .hero-photo{margin:0;position:relative;min-width:0;display:flex;flex-direction:column;background:#102f37}
+#page-home .hero-photo img{display:block;width:100%;height:100%;min-height:580px;flex:1;aspect-ratio:auto;object-fit:cover;object-position:54% center;border-radius:0}
+#page-home .hero-photo figcaption{padding:19px 26px;color:white;font-size:.9rem;line-height:1.5;background:#102f37}
+#page-home .hero-photo figcaption span{display:block;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#a7f3d0;margin-bottom:5px;font-weight:700}
+.activity-journal{padding:80px 0;background:#faf9f6}
+.activity-journal>.wrap{max-width:1440px}
+.journal-heading{display:flex;gap:48px;align-items:end;justify-content:space-between;margin-bottom:38px}
+.journal-heading .section-heading{margin-bottom:0}
+.journal-heading>p{max-width:350px;color:var(--g600);line-height:1.8;font-size:.95rem}
+.activity-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px 28px}
+.activity-photo{margin:0;min-width:0}
+.activity-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+.activity-photo figcaption{padding:18px 0 0;border-bottom:1px solid var(--g200);padding-bottom:22px}
+.photo-kicker{display:block;font-size:.66rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#08765b;margin-bottom:9px}
+.activity-photo h3{font-family:var(--fd);font-size:clamp(1.4rem,2vw,2rem);font-weight:400;line-height:1.1;margin-bottom:9px}
+.activity-photo p{font-size:.9rem;line-height:1.7;color:var(--g600);max-width:640px}
+.activity-wide{grid-column:1/-1}
+.activity-wide img{aspect-ratio:16/9}
+.activity-writing{grid-row:span 2}
+.activity-writing img{aspect-ratio:auto;height:calc(100% - 155px);max-height:1000px;object-position:center 35%}
+.journal-link{display:inline-block;margin-top:30px}
+.grange-journal{margin:40px 0}
+.grange-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.grange-photo-grid .activity-photo img{aspect-ratio:4/3}
+@media(min-width:1600px){#page-home .hero-photo img{max-height:850px}}
+@media(max-width:900px){#page-home .hero-photo{grid-row:1}#page-home .hero-content{grid-row:2}#page-home .hero-layout{grid-template-columns:1fr}#page-home .hero-content{padding:48px 24px 40px}#page-home .hero h1{font-size:clamp(3rem,7.5vw,5rem);max-width:760px}#page-home .hero-body{max-width:660px}#page-home .hero-photo img{min-height:0;height:auto;aspect-ratio:3/2;flex:none;object-fit:cover}#page-home .hero-photo figcaption{padding:16px 24px}.journal-heading{display:block}.journal-heading>p{max-width:600px;margin-top:20px}.activity-journal{padding:48px 0}}
+@media(max-width:600px){.activity-grid,.grange-photo-grid{grid-template-columns:1fr;gap:30px}.activity-wide{grid-column:auto}.activity-writing{grid-row:auto}.activity-writing img{height:auto;max-height:none;aspect-ratio:4/5}.activity-wide img{aspect-ratio:4/3}.activity-photo figcaption{padding-top:15px}.activity-photo h3{font-size:1.6rem}#page-home .hero h1{font-size:clamp(2.7rem,10vw,3.6rem)}#page-home .hero-ctas{flex-direction:row}#page-home .hero-content{padding-top:32px}.journal-heading .section-heading{font-size:2.2rem}.activity-journal .wrap{padding:0 20px}}
+
 </style>
 </head>
 <body>
@@ -502,7 +538,7 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 <a href="/get-involved" class="btn btn-white">Get involved</a>
 <a href="#" class="btn btn-glass" data-page="programmes">Explore our pathways</a>
 </div>
-</div><figure class="hero-photo"><img src="images/home-studio-group.jpg" alt="Three people gathered around the recording studio workstation" fetchpriority="high"></figure></div>
+</div><figure class="hero-photo"><img src="images/home-studio-group.jpg" alt="Three people gathered around the recording studio workstation" fetchpriority="high" width="1536" height="1024"><figcaption><span>Music &amp; mentoring · Cardiff Bay</span>Time together in the Silkfutures studio.</figcaption></figure></div>
 </section>
 
 <div class="ticker"><div class="ticker-track">
@@ -518,22 +554,10 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 <p id="home-live-range" style="grid-column:1/-1;font-size:.8rem;color:var(--g600)">Loading the latest programme figures…</p>
 </div></div></section>
 
-<div class="photo-strip">
-<img src="images/studio-session.jpg" alt="Studio session" loading="lazy">
-<img src="images/woods-group.jpg" alt="Set Pace wellbeing session in the woods" loading="lazy">
-<img src="images/autumn-joy.jpg" alt="Young person on a Facing Fears trip" style="object-position:center 40%" loading="lazy">
-</div>
-
-<section class="home-studio-gallery" aria-labelledby="home-studio-title"><div class="wrap">
-<h2 id="home-studio-title" class="section-heading">INSIDE THE STUDIO</h2>
-<div class="home-studio-grid">
-<div class="home-studio-landscapes">
-<img src="images/home-studio-conversation.jpg" alt="A person in a Silkfutures shirt speaking in the recording studio" loading="lazy">
-<img src="images/home-studio-listening.jpg" alt="Two young people listening from a beanbag in the studio" loading="lazy">
-</div>
-<img class="home-studio-portrait" src="images/home-studio-writing.jpg" alt="A young person writing with a pencil in the studio" loading="lazy">
-</div>
-</div></section>
+<section class="activity-journal" aria-labelledby="activity-title"><div class="wrap">
+<div class="journal-heading"><div><span class="section-label">Life at Silkfutures</span><h2 class="section-heading" id="activity-title">THIS IS WHAT<br><em>SHOWING UP LOOKS LIKE.</em></h2></div><p>In the studio, in the community and out in the world. A closer look at the spaces we share and the things we do together.</p></div>
+<div class="activity-grid">
+<figure class="activity-photo activity-wide"><img src="images/grangetown-taster-group.webp" alt="Young people and a mentor gathered in the Grangetown studio" loading="lazy"><figcaption><span class="photo-kicker">Grangetown · Taster sessions</span><h3>A space to come together.</h3><p>Music taster sessions with Benny at Grange Boys &amp; Girls Club. A first step into our creative community.</p></figcaption></figure><figure class="activity-photo activity-writing"><img src="images/home-studio-writing.jpg" alt="A young person writing in the recording studio" loading="lazy"><figcaption><span class="photo-kicker">Inside the studio</span><h3>Space to find your voice.</h3><p>Time for ideas, writing and creative expression.</p></figcaption></figure><figure class="activity-photo "><img src="images/home-studio-conversation.jpg" alt="A mentor talking with young people in the studio" loading="lazy"><figcaption><span class="photo-kicker">Music &amp; mentoring</span><h3>It starts with a conversation.</h3><p>Relationships are at the heart of the time we spend together.</p></figcaption></figure><figure class="activity-photo "><img src="images/home-studio-listening.jpg" alt="Two young people sharing a beanbag in the studio" loading="lazy"><figcaption><span class="photo-kicker">Our creative community</span><h3>Somewhere to belong.</h3><p>Sharing the studio means making space to listen, connect and be yourself.</p></figcaption></figure><figure class="activity-photo activity-wide"><img src="images/coasteering-group.jpg" alt="The group together on coastal rocks during a Facing Fears trip" loading="lazy"><figcaption><span class="photo-kicker">Facing Fears · Beyond the studio</span><h3>New experiences. Shared courage.</h3><p>Getting out into the world together through our Facing Fears programme.</p></figcaption></figure></div><a href="#programmes" data-page="programmes" class="link journal-link">Explore the work behind the pictures →</a></div></section>
 
 <section class="home-testimonial"><div class="wrap">
 <figure><blockquote>“He now has visions and goals for his future, and a sense of belonging that makes such a difference. <em>He now feels part of something bigger — and that means everything.</em>”</blockquote><figcaption>A parent’s perspective · excerpt</figcaption></figure>
@@ -608,7 +632,7 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 <h2 class="section-heading fi">WAYS TO TAKE PART <em>NOW</em></h2>
 <p class="section-sub fi">Start with what interests you. You do not need polished skills or a fixed plan — we can help work out the right next step.</p>
 <div class="opportunity-grid">
-<article class="opportunity-card fi"><img src="images/community-session.jpg" alt="Young people creating together at a Silkfutures community session" loading="lazy"><div class="opportunity-body"><h3>OPEN ACCESS</h3><p><strong>Ages 11–16 · Grangetown · Free</strong></p><p>Weekly music and mentoring at Grange Boys &amp; Girls Club. No referral needed.</p><a href="#" data-page="programmes" class="link">See session details →</a></div></article>
+<article class="opportunity-card fi"><img src="images/grangetown-taster-group.webp" alt="Young people creating together at a Silkfutures community session" loading="lazy"><div class="opportunity-body"><h3>OPEN ACCESS</h3><p><strong>Ages 11–16 · Grangetown · Free</strong></p><p>Weekly music and mentoring at Grange Boys &amp; Girls Club. No referral needed.</p><a href="#" data-page="programmes" class="link">See session details →</a></div></article>
 <article class="opportunity-card fi fd1"><img src="images/studio-circle.png" alt="Young creatives gathered in a studio circle" loading="lazy"><div class="opportunity-body"><h3>SILKFUTURES COHORT</h3><p><strong>A consistent creative community</strong></p><p>Make things, develop your ideas and build alongside other young creatives. Register interest for the next intake.</p><a href="#" data-page="refer" class="link">Register your interest →</a></div></article>
 <article class="opportunity-card fi fd2"><img src="images/sp-main.jpg" alt="Set Pace movement and wellbeing session" loading="lazy"><div class="opportunity-body"><h3>SET PACE</h3><p><strong>Movement · Wellbeing · Challenge</strong></p><p>Weekly sessions built around physical challenge, trusted relationships and shared support.</p><a href="#" data-page="refer" class="link">Ask about Set Pace →</a></div></article>
 </div>
@@ -892,7 +916,7 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 
 <p>Sessions are structured to separate age and experience groups — allowing for deeper individual engagement at every level. Benny splits the time deliberately: working with the older young people on their own projects first, then inviting the younger boys in for their session. He splits them not out of hierarchy, but because the younger participants can feel intimidated — and giving them space to build confidence before the room fills up makes all the difference. Benny is also training young people to become proficient on the computer — so they can record, mix, and produce for each other. The goal is not dependence on the mentor. The goal is capability.</p>
 
-<h3 style="font-family:var(--fd);font-size:1.1rem;margin:32px 0 16px">FROM THE SESSIONS</h3>
+<div class="grange-journal"><h3 class="section-heading">A LOOK INSIDE THE TASTER SESSIONS</h3><div class="grange-photo-grid"><figure class="activity-photo "><img src="images/grangetown-taster-group.webp" alt="Young people and a mentor in the Grangetown studio" loading="lazy"><figcaption><span class="photo-kicker">Grangetown · Taster sessions</span><h3>Together in the studio.</h3></figcaption></figure><figure class="activity-photo "><img src="images/grangetown-taster-sofa.webp" alt="Young people gathered on chairs and a sofa at a taster session" loading="lazy"><figcaption><span class="photo-kicker">Grangetown · Taster sessions</span><h3>Meeting the group.</h3></figcaption></figure><figure class="activity-photo "><img src="images/grangetown-taster-together.webp" alt="Three young people sitting together during a taster session" loading="lazy"><figcaption><span class="photo-kicker">Grangetown · Taster sessions</span><h3>Time together between the music.</h3></figcaption></figure><figure class="activity-photo "><img src="images/grangetown-studio.webp" alt="Warmly lit Grangetown studio with microphone, keyboard and recording equipment" loading="lazy"><figcaption><span class="photo-kicker">Grangetown · Taster sessions</span><h3>A community room, made into a studio.</h3></figcaption></figure></div></div><h3 style="font-family:var(--fd);font-size:1.1rem;margin:32px 0 16px">FROM THE SESSIONS</h3>
 
 <div class="quote-block" style="margin-bottom:20px">
 <p>"The first half of the session was spent making progress on one young person's debut single — a song about someone he hadn't seen since he was 12 years old. Since he's been using Logic Pro at home, he was able to contribute to the mix, actually giving me tips on how to use the Logic stock auto-tune. This was very empowering for him — he was able to participate on a higher level."</p>
