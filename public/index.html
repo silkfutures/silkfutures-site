@@ -504,6 +504,16 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 @media(max-width:900px){#page-home .hero-photo{grid-row:1}#page-home .hero-content{grid-row:2}#page-home .hero-layout{grid-template-columns:1fr}#page-home .hero-content{padding:48px 24px 40px}#page-home .hero h1{font-size:clamp(3rem,7.5vw,5rem);max-width:760px}#page-home .hero-body{max-width:660px}#page-home .hero-photo img{min-height:0;height:auto;aspect-ratio:3/2;flex:none;object-fit:cover}#page-home .hero-photo figcaption{padding:16px 24px}.journal-heading{display:block}.journal-heading>p{max-width:600px;margin-top:20px}.activity-journal{padding:48px 0}}
 @media(max-width:600px){.activity-grid,.grange-photo-grid{grid-template-columns:1fr;gap:30px}.activity-wide{grid-column:auto}.activity-writing{grid-row:auto}.activity-writing img{height:auto;max-height:none;aspect-ratio:4/5}.activity-wide img{aspect-ratio:4/3}.activity-photo figcaption{padding-top:15px}.activity-photo h3{font-size:1.6rem}#page-home .hero h1{font-size:clamp(2.7rem,10vw,3.6rem)}#page-home .hero-ctas{flex-direction:row}#page-home .hero-content{padding-top:32px}.journal-heading .section-heading{font-size:2.2rem}.activity-journal .wrap{padding:0 20px}}
 
+
+/* Community and creative-practice photographs retain their portrait framing. */
+.community-journal{padding:64px 0;background:#faf9f6}
+.community-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.practice-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:32px 0}
+.activity-photo.portrait-story img{height:auto;aspect-ratio:3/4;object-fit:cover;max-height:none}
+.practice-photo-grid .activity-photo h3{font-size:1.45rem}
+.reflection-story{max-width:540px;margin:44px auto}
+@media(max-width:768px){.practice-photo-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.community-photo-grid,.practice-photo-grid{grid-template-columns:1fr;gap:32px}.community-journal{padding:44px 0}.reflection-story{margin:32px 0}}
 </style>
 </head>
 <body>
@@ -564,6 +574,7 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 <a href="#stories" data-page="stories" class="btn">Read young people’s stories</a>
 </div></section>
 
+<section class="community-journal" aria-labelledby="community-title"><div class="wrap"><div class="journal-heading"><div><span class="section-label">Beyond the sessions</span><h2 id="community-title" class="section-heading">A COMMUNITY TO<br><em>BE PART OF.</em></h2></div><p>Relationships grow in the everyday moments too — sharing food, spending time together and celebrating as a community.</p></div><div class="community-photo-grid"><figure class="activity-photo portrait-story"><img src="images/community-christmas-meal.webp" alt="Young people and mentors sharing a Christmas meal wearing Santa hats" loading="lazy" width="1200" height="1600"><figcaption><span class="photo-kicker">Silkfutures community · Christmas meal</span><h3>A place at the table.</h3><p>Sharing a Christmas meal with young people and mentors — time to catch up, celebrate and enjoy being together.</p></figcaption></figure><figure class="activity-photo portrait-story"><img src="images/community-christmas-group.webp" alt="The group wearing Santa hats outdoors in Cardiff Bay" loading="lazy" width="1200" height="1600"><figcaption><span class="photo-kicker">Silkfutures community · Cardiff Bay</span><h3>Together beyond the studio.</h3><p>A group photograph from our Christmas gathering in Cardiff Bay.</p></figcaption></figure></div></div></section>
 <section class="section"><div class="wrap">
 <div class="section-watermark" style="top:20px;right:-80px;animation:spin-slow 60s linear infinite"></div>
 <div class="two-col">
@@ -797,14 +808,11 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 <p>Weekly individual and group sessions in a professional recording studio. Young people work with dedicated mentors to develop their craft and themselves — exploring identity, confidence, and emotional expression through the creative process using professional software including Logic Pro.</p>
 <p>Sessions are flexible and responsive. Mentors regularly step away from the studio — to walk, to eat, to sit somewhere quiet. The most significant work often happens off-programme: a conversation on the way to the session, a moment in the car, an hour in the sun that produces no music at all. These are not failures of delivery. They are the model working as intended.</p>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:24px 0;border-radius:12px;overflow:hidden">
-<img src="images/studio-booth-neon.jpg" alt="Young person recording in the booth — neon lighting, acoustic panels, Logic Pro on screen" style="width:100%;height:260px;object-fit:cover" loading="lazy">
-<img src="images/studio-desk-session.jpg" alt="Mentor at the mixing desk — Logic Pro session, monitors, warm studio lighting" style="width:100%;height:260px;object-fit:cover" loading="lazy">
-</div>
+<div class="practice-photo-grid"><figure class="activity-photo portrait-story"><img src="images/pathways-music-production.webp" alt="A young person working at a studio computer with music production software" loading="lazy" width="1200" height="1600"><figcaption><span class="photo-kicker">Creative practice · Production</span><h3>Behind the music.</h3><p>Working with music software at the studio desk.</p></figcaption></figure><figure class="activity-photo portrait-story"><img src="images/pathways-writing-together.webp" alt="Two young people writing in notebooks in the studio" loading="lazy" width="1200" height="1600"><figcaption><span class="photo-kicker">Creative practice · Writing</span><h3>Getting ideas onto the page.</h3><p>Writing together, with room to work in your own way.</p></figcaption></figure><figure class="activity-photo portrait-story"><img src="images/pathways-recording-together.webp" alt="A young person wearing headphones at a microphone while another sits nearby" loading="lazy" width="1200" height="1600"><figcaption><span class="photo-kicker">Creative practice · Recording</span><h3>Taking it to the microphone.</h3><p>Making space to practise recording and share the experience with someone else.</p></figcaption></figure></div>
 
 <p class="detail">"Something closer to a confessional than a recording booth — not because we make it that way, but because young people make it that way when they feel safe enough."</p>
 
-<div class="cards-intro">
+<div class="reflection-story"><figure class="activity-photo portrait-story"><img src="images/mentoring-reflection-card.webp" alt="A person writing beside a reflection card asking where to pause and build strength" loading="lazy" width="1200" height="1600"><figcaption><span class="photo-kicker">Mentoring · Reflection</span><h3>Making time to pause.</h3><p>A reflection prompt in use during a session: “Where do I need to pause and build strength before I push again?”</p></figcaption></figure></div><div class="cards-intro">
 <h3 style="font-family:var(--fd);font-size:1.1rem;margin:28px 0 12px">HOW WE LISTEN</h3>
 <p>Three card decks designed by Silkfutures — used in every session. Not worksheets. Not assessments. Conversation starters that meet young people where they are.</p>
 <p class="cards-hint">Hover over each card to see the question on the other side.</p>
