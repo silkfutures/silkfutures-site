@@ -5,6 +5,10 @@
     {
       "source": "/get-involved",
       "destination": "/get-involved.html"
+    },
+    {
+      "source": "/commission",
+      "destination": "/commission.html"
     }
   ]
 }
