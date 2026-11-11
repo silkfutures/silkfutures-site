@@ -457,17 +457,18 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 
 /* Keep touch targets clear of the hero and usable on narrow screens. */
 .mob-toggle{min-width:44px;min-height:44px;align-items:center;justify-content:center}.nav-logo{display:flex;align-items:center;min-height:44px}a:focus-visible,button:focus-visible{outline:3px solid #059669;outline-offset:5px}@media(max-width:768px){.nav-links.open a{display:flex;align-items:center;min-height:44px}.nav-links.open{gap:8px}.nav-inner{padding:0 24px}}
-.home-studio-gallery{padding:clamp(24px,5vw,64px) 0}
-.home-studio-grid{display:grid;grid-template-columns:3fr 2fr;gap:clamp(10px,2vw,24px);align-items:stretch}
-.home-studio-landscapes{display:grid;gap:clamp(10px,2vw,24px)}
-.home-studio-grid img{display:block;width:100%;height:100%;object-fit:cover;border-radius:12px}
-.home-studio-landscapes img{aspect-ratio:3/2}
-.home-studio-grid>.home-studio-portrait{min-height:0;object-position:65% center}
+/* A single, compact photo story; portrait accompanies the mentoring copy. */
+.home-studio-gallery{padding:clamp(32px,5vw,64px) 0}
+.home-studio-gallery .section-label{margin-bottom:14px}
+.home-studio-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,24px)}
+.home-studio-grid figure{margin:0;min-width:0}
+.home-studio-grid img{display:block;width:100%;height:auto;aspect-ratio:1600/1066;object-fit:cover;border-radius:12px}
+.home-mentoring-photo{display:block;width:100%;max-width:360px;height:auto;aspect-ratio:2/3;border-radius:12px;margin:24px auto 0}
+.hero-photo img[src="images/home-studio-group.jpg"]{aspect-ratio:3/2;display:block}
 @media(max-width:640px){
-  .home-studio-grid{grid-template-columns:1fr}
-  .home-studio-grid>.home-studio-portrait{height:auto;aspect-ratio:4/5}
+  .home-studio-grid{grid-template-columns:1fr;gap:16px}
+  .home-mentoring-photo{max-width:300px}
 }
-.hero-photo img[src="images/home-studio-group.jpg"]{aspect-ratio:3/2}
 </style>
 </head>
 <body>
@@ -502,7 +503,7 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 <a href="/get-involved" class="btn btn-white">Get involved</a>
 <a href="#" class="btn btn-glass" data-page="programmes">Explore our pathways</a>
 </div>
-</div><figure class="hero-photo"><img src="images/home-studio-group.jpg" alt="Three people gathered around the recording studio workstation" fetchpriority="high"></figure></div>
+</div><figure class="hero-photo"><img src="images/home-studio-group.jpg" alt="Three people gathered around the recording studio workstation" width="1920" height="1280" fetchpriority="high"></figure></div>
 </section>
 
 <div class="ticker"><div class="ticker-track">
@@ -518,20 +519,11 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 <p id="home-live-range" style="grid-column:1/-1;font-size:.8rem;color:var(--g600)">Loading the latest programme figures…</p>
 </div></div></section>
 
-<div class="photo-strip">
-<img src="images/studio-session.jpg" alt="Studio session" loading="lazy">
-<img src="images/woods-group.jpg" alt="Set Pace wellbeing session in the woods" loading="lazy">
-<img src="images/autumn-joy.jpg" alt="Young person on a Facing Fears trip" style="object-position:center 40%" loading="lazy">
-</div>
-
 <section class="home-studio-gallery" aria-labelledby="home-studio-title"><div class="wrap">
-<h2 id="home-studio-title" class="section-heading">INSIDE THE STUDIO</h2>
+<h2 id="home-studio-title" class="section-label">Inside the studio</h2>
 <div class="home-studio-grid">
-<div class="home-studio-landscapes">
-<img src="images/home-studio-conversation.jpg" alt="A person in a Silkfutures shirt speaking in the recording studio" loading="lazy">
-<img src="images/home-studio-listening.jpg" alt="Two young people listening from a beanbag in the studio" loading="lazy">
-</div>
-<img class="home-studio-portrait" src="images/home-studio-writing.jpg" alt="A young person writing with a pencil in the studio" loading="lazy">
+<figure><img src="images/home-studio-conversation.jpg" width="1600" height="1066" alt="A mentor speaking with young people in the Silkfutures recording studio" loading="lazy"></figure>
+<figure><img src="images/home-studio-listening.jpg" width="1600" height="1066" alt="Two young people listening from a beanbag in the studio" loading="lazy"></figure>
 </div>
 </div></section>
 
@@ -555,7 +547,7 @@ footer{padding:56px 0 32px;border-top:none;margin-top:0;background:var(--grad);c
 <p><a href="#" data-page="about" class="link">Read more about us →</a></p>
 </div></div>
 <div class="fi fd2"><div class="quote-block"><p>"It's like they're always listening, even before I say something. I feel part of a team, part of a family."</p><cite>— Young person, Silkfutures</cite></div>
-<img src="images/mic-performance.png" alt="Young person performing with headphones and mic" style="width:100%;border-radius:12px;margin-top:24px" loading="lazy">
+<img class="home-mentoring-photo" src="images/home-studio-writing.jpg" width="1000" height="1500" alt="A young person developing her ideas with a pencil and notebook in the studio" loading="lazy">
 </div>
 </div></div></section>
 
