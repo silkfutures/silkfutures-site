@@ -63,3 +63,46 @@ footer { border-top: 1px solid var(--line); padding-block: 18px; font-size: .8re
   .enquiry-panel { gap: 12px; }
 }
 @media (max-width: 420px) { .form-row { grid-template-columns: 1fr; gap: 0; } }
+
+/* Match the public site's green/blue identity and editorial hierarchy. */
+:root{background:#faf9f6;color:#151515;--green:#2563eb;--line:#dce2df}
+.wrap{width:min(100% - 48px,1136px)}
+.site-header{min-height:80px;padding-block:16px}
+.site-header>a{display:flex;align-items:center;gap:10px;text-decoration:none}
+.site-header>a span{font-family:var(--heading);font-size:1.7rem;letter-spacing:.04em}
+.site-header img{width:40px;height:40px}
+nav a{text-decoration:none;color:#333}
+.intro{background:linear-gradient(135deg,#065f46,#123e72 75%,#3730a3);padding:72px 0}
+h1{font-size:clamp(3.2rem,6.8vw,6.1rem);line-height:.98;max-width:950px}
+h1 span{color:#a7f3d0}
+.intro p{max-width:630px;line-height:1.8}
+.intro .eyebrow{margin:0 0 22px}
+.intro .participant-note{font-size:.8rem;margin:28px 0 0;color:#e5eeec}
+.participant-note a{color:white;font-weight:700}
+.button{border-radius:5px;min-height:48px;font-size:.85rem}
+.intro .primary{background:white;color:#123e53}
+.catalogue{padding-top:72px;scroll-margin-top:24px}
+h2{font-size:clamp(2.5rem,4.8vw,3.7rem)}
+h3{font-size:2.5rem}
+.featured{margin-top:30px;gap:0;background:#eaf1ed;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.featured .offer{border:0;background:transparent;border-radius:0;padding:36px}
+.featured figure{border-radius:0}
+.featured figure img{aspect-ratio:4/3;object-fit:cover}
+.offers{gap:20px}
+.offer{padding:32px;border-radius:6px}
+.offer-number{font-size:.64rem;letter-spacing:.13em;font-weight:700;color:#08765b;margin-bottom:18px}
+.offer .price{margin:20px 0;padding-bottom:20px;border-bottom:1px solid var(--line);width:100%}
+.price strong{font-size:1.8rem;letter-spacing:-.03em;font-weight:700;color:#123e53}
+.price span{color:#505b57;margin-top:4px}
+.offer p{font-size:.9rem;color:#48524f;line-height:1.75}
+.offer .audience{color:#1f302a;font-weight:700}
+.enquire{margin-top:auto;padding-top:24px;text-decoration:none;color:#1d4ed8;font-size:.85rem}
+.enquire:hover{text-decoration:underline}
+.services{margin-top:30px}
+.services h3{font-size:2rem}
+.services .price strong{font-size:1.6rem}
+.enquiry-panel{background:#eaf1ed;border-radius:6px;scroll-margin-top:24px}
+.enquiry-panel h2{font-size:clamp(2.4rem,4vw,3.4rem)}
+footer{gap:24px}footer span{margin-right:auto}
+@media(max-width:800px){.services{grid-template-columns:1fr}.services .offer{display:grid;grid-template-columns:1fr 1fr;gap:0 24px}.services .offer-number,.services .enquire{grid-column:1/-1}}
+@media(max-width:640px){.wrap{width:calc(100% - 40px)}.site-header{gap:8px}.site-header nav{gap:16px}.site-header nav a{font-size:.75rem}.intro{padding:48px 0}.intro .actions{align-items:stretch;flex-direction:column}.intro .actions a{width:100%}.catalogue{padding-top:48px}.offer,.featured .offer{padding:26px}.services .offer{display:flex}.featured figure img{flex:none}.enquiry-panel{padding:24px}.price strong{font-size:1.7rem}}

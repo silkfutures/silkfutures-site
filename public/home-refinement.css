@@ -1,0 +1,43 @@
+/* Homepage composition: shared type, restrained colour, fewer competing blocks. */
+#page-home .hero-layout{max-width:1320px;margin:auto;padding:44px 32px 56px;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+#page-home .hero-content{padding:24px 0}
+#page-home .hero h1{font-size:clamp(3.3rem,4.7vw,5.1rem);line-height:1.02;color:white}
+#page-home .hero-body{max-width:470px;color:#e8f1f1;font-size:1.03rem;margin:24px 0 30px}
+#page-home .hero-photo{border-radius:6px;overflow:hidden}
+#page-home .hero-photo img{min-height:0;height:460px;object-position:54% center;flex:none}
+#page-home .hero-photo figcaption{font-size:.8rem;padding:16px 20px}
+#page-home .hero-orb,#page-home .hero-flower-w{display:none}
+#page-home .hero-label,#page-home .hero h1,#page-home .hero-body,#page-home .hero-ctas{opacity:1;animation:none;transform:none}
+#page-home .journey{padding:88px 0;background:#faf9f6}
+#page-home .journey-intro{max-width:760px;text-align:left;margin:0 0 36px}
+#page-home .journey-intro .section-sub{margin:20px 0 0;max-width:570px}
+#page-home .journey-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+#page-home .journey-card{grid-column:span 2;min-height:0;border-radius:6px;padding:28px;background:white;box-shadow:none}
+#page-home .journey-card:nth-child(n+4){grid-column:span 3}
+#page-home .journey-card h3{font-size:2rem}
+#page-home .journey-card p{font-size:.9rem}
+#page-home .journey-card .journey-tags{font-size:.65rem;margin-top:20px}
+#page-home .commission-callout{background:#113c39;color:white;border-radius:6px;margin:28px 0 0;padding:32px}
+#page-home .commission-callout p{color:#d6e7e3;max-width:620px}
+#page-home .commission-callout .btn{background:white;color:#113c39;white-space:nowrap}
+#page-home .stat-band{padding:44px 0;border-bottom:1px solid #e0e0e0}
+#page-home .stat-num{font-size:3.8rem}
+#page-home .stat-row{gap:16px}
+#page-home .activity-journal{background:white;padding:80px 0}
+#page-home .activity-journal>.wrap{max-width:1200px}
+#page-home .activity-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+#page-home .activity-photo img{aspect-ratio:4/3;object-fit:cover}
+#page-home .activity-photo h3{font-size:1.7rem}
+#page-home .activity-photo p{font-size:.85rem}
+#page-home .community-journal{background:#faf9f6;padding:72px 0}
+#page-home .community-journal>.wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+#page-home .community-journal .journal-heading{display:block;margin:0}
+#page-home .community-journal .journal-heading>p{margin-top:24px;max-width:410px}
+#page-home .community-photo-grid{grid-template-columns:1fr}
+#page-home .community-photo-grid img{aspect-ratio:3/4;max-height:480px;object-fit:contain;background:#eceae5}
+#page-home .pipeline{padding:72px 0;text-align:center}
+#page-home .pipeline .section-sub{margin-bottom:28px!important;color:#eef5f4!important}
+#page-home .section-watermark{display:none}
+@media(max-width:1000px){.nav-links{gap:14px}.nav-links a{font-size:.73rem}#page-home .hero-layout{gap:28px}#page-home .hero h1{font-size:3.6rem}#page-home .hero-photo img{height:420px}}
+@media(max-width:900px){#page-home .hero-layout{grid-template-columns:1fr;padding:36px 24px 40px;gap:28px}#page-home .hero-content{grid-row:1;padding:0}#page-home .hero-photo{grid-row:2}#page-home .hero-photo img{height:auto;aspect-ratio:3/2}#page-home .hero h1{max-width:700px}#page-home .hero-body{max-width:600px}}
+@media(max-width:640px){#page-home .hero h1{font-size:clamp(2.7rem,10.8vw,3.8rem)}#page-home .journey,#page-home .activity-journal,#page-home .community-journal{padding:52px 0}#page-home .journey-grid,#page-home .activity-grid,#page-home .community-journal>.wrap{grid-template-columns:1fr;gap:20px}#page-home .journey-card,#page-home .journey-card:nth-child(n+4){grid-column:auto}#page-home .journey-card{padding:24px}#page-home .community-journal>.wrap{gap:32px}#page-home .commission-callout{padding:24px}#page-home .commission-callout .btn{white-space:normal;width:100%;justify-content:center}#page-home .stat-row{grid-template-columns:1fr 1fr;gap:24px}#page-home .hero-ctas .btn{padding:14px 18px}#page-home .community-photo-grid img{max-height:none}}
