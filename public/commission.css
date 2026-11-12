@@ -106,3 +106,10 @@ h3{font-size:2.5rem}
 footer{gap:24px}footer span{margin-right:auto}
 @media(max-width:800px){.services{grid-template-columns:1fr}.services .offer{display:grid;grid-template-columns:1fr 1fr;gap:0 24px}.services .offer-number,.services .enquire{grid-column:1/-1}}
 @media(max-width:640px){.wrap{width:calc(100% - 40px)}.site-header{gap:8px}.site-header nav{gap:16px}.site-header nav a{font-size:.75rem}.intro{padding:48px 0}.intro .actions{align-items:stretch;flex-direction:column}.intro .actions a{width:100%}.catalogue{padding-top:48px}.offer,.featured .offer{padding:26px}.services .offer{display:flex}.featured figure img{flex:none}.enquiry-panel{padding:24px}.price strong{font-size:1.7rem}}
+
+/* Programme photographs share a consistent frame above each offer. */
+.offers:not(.services) .offer{overflow:hidden}
+.programme-photo{display:block;width:calc(100% + 64px);max-width:none;height:auto;aspect-ratio:16/9;object-fit:cover;margin:-32px -32px 28px;flex-shrink:0}
+#offer-4 .programme-photo{object-position:center 43%}
+#offer-5 .programme-photo{object-position:center 35%}
+@media(max-width:640px){.programme-photo{width:calc(100% + 52px);margin:-26px -26px 24px}}
